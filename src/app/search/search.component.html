@@ -1,0 +1,19 @@
+<div class="input-group mb-3 mt-2">
+
+    <input type="text"
+           class="form-control"
+           placeholder="github repo search"
+           aria-label="github repo search"
+           aria-describedby="basic-addon2"
+           #search
+           (input)="onSearchValueEnter(search.value)"
+    >
+
+  <div class="input-group-append">
+    <button
+      class="btn btn-outline-secondary
+      "type="button"
+      (click)="onSearchClick()"
+    >Search</button>
+  </div>
+</div>

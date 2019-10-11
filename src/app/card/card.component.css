@@ -1,0 +1,14 @@
+.card-img{
+  border-radius: 50%;
+}
+.card-text,
+.card-link{
+  margin-bottom: 0.2rem;
+}
+.card-link{
+  text-decoration: none;
+  color: darkcyan;
+}
+.card{
+  background: linear-gradient(to right, lavender 50%, lightblue 100%);
+}

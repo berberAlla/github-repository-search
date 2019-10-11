@@ -1,0 +1,21 @@
+
+<div class="card mb-3">
+  <div class="row no-gutters align-items-center">
+    <div class="col-md-4">
+      <img
+        [attr.src]='repo.avatar_url'
+        class="card-img pl-2"
+        [attr.title]="repo.login"
+      >
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <h6 class="card-title">{{repo.name}}</h6>
+        <p class="card-text">{{repo.login}}</p>
+        <a [attr.href]="repo.html_url" class="card-link">Link To Repository</a>
+        <p class="card-text">Size: {{repo.size}}</p>
+        <p class="card-text">Watchers: {{repo.watchers}}</p>
+      </div>
+    </div>
+  </div>
+</div>
