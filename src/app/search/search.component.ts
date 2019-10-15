@@ -26,6 +26,7 @@ export class SearchComponent {
       .subscribe((userRepos) => {
         this.usersRepos = userRepos;
         this.dataStorage.updateUsersRepo(this.usersRepos);
+        this.dataStorage.updateCurrentPage(1);
       })
   }
 }

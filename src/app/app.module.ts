@@ -11,13 +11,21 @@ import {HttpInterceptorService} from './services/http-interceptor.service';
 import {DataStorageService} from './services/data-storage.service';
 import {MessageService} from './message/message.service';
 import { MessageComponent } from './message/message.component';
+import { PaginationComponent } from './pagination/pagination.component';
+import {ReposFilterPipe} from "./pipes/repos-filter.pipe";
+import {PaginationService} from "./pagination/services/pagination.service";
+import {DataTransformService} from "./services/data-transform.service";
+import {PaginatorFilterPipe} from "./pagination/pipes/paginator-filter.pipe";
 
 @NgModule({
   declarations: [
     AppComponent,
     SearchComponent,
     CardComponent,
-    MessageComponent
+    MessageComponent,
+    PaginationComponent,
+    ReposFilterPipe,
+    PaginatorFilterPipe
   ],
   imports: [
     BrowserModule,
@@ -28,7 +36,9 @@ import { MessageComponent } from './message/message.component';
     HttpService,
     {provide: HTTP_INTERCEPTORS, useClass: HttpInterceptorService, multi: true},
     DataStorageService,
-    MessageService
+    MessageService,
+    PaginationService,
+    DataTransformService
   ],
   entryComponents: [MessageComponent],
   bootstrap: [AppComponent]

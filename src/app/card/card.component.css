@@ -12,3 +12,18 @@
 .card{
   background: linear-gradient(to right, lavender 50%, lightblue 100%);
 }
+
+@media (max-width: 767px) {
+  .card-body{
+    text-align: center;
+  }
+  .col-md-4{
+    text-align: center;
+  }
+  .card-img{
+    height: 70%;
+    width: 70%;
+    padding: 0;
+    margin-top: 0.5rem;
+  }
+}

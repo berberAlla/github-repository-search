@@ -2,12 +2,16 @@
 <div class="container">
   <app-search></app-search>
   <ng-container #message></ng-container>
-  <div class="row">
-  <app-card
-    *ngFor="let repo of userRepos;let i = index;"
-    [repo]="repo"
-    class="col-lg-4 col-md-6 col-sm-12"
-  ></app-card>
+  <div class="row justify-content-start">
+    <app-card
+      *ngFor="let repo of (getRepos() | async) | reposFilter :
+       (getPerPage() | async) :
+       (getCurrentPage() | async);let i = index;"
+      [repo]="repo"
+      class="col-lg-4 col-md-6 col-sm-12"
+    ></app-card>
+  </div>
+  <div class="row justify-content-center" *ngIf="(getRepos() | async).length > 0">
+    <app-pagination class="px-3"></app-pagination>
+  </div>
 </div>
-</div>
-

@@ -7,12 +7,13 @@ export class MessageService {
   messageComponent: any;
   messageText: string = '';
   createMessage(messageObject: any){
-    this.messageContainer = messageObject.container;
-    this.messageComponent = messageObject.component;
-    this.messageText = messageObject.text;
-    const compFactory = this.compResolver.resolveComponentFactory(this.messageComponent);
-    const comp = this.messageContainer.createComponent(compFactory);
-    this.showMessage(comp);
+      this.messageContainer = messageObject.container;
+      this.messageComponent = messageObject.component;
+      this.messageText = messageObject.text;
+      this.messageContainer.clear();
+      const compFactory = this.compResolver.resolveComponentFactory(this.messageComponent);
+      const comp = this.messageContainer.createComponent(compFactory);
+      this.showMessage(comp);
   }
 
   showMessage(component: any){

@@ -1,0 +1,29 @@
+<nav aria-label="...">
+  <ul class="pagination">
+    <li
+      [ngStyle]="{'cursor': 'pointer','user-select': 'none'}"
+      class="page-item" (click)="paginationService.onPrev()"
+      [ngClass]="{'disabled': paginationService.currentPage === 1}"
+    >
+      <a
+        class="page-link"
+      >Previous</a>
+    </li>
+    <li class="page-item"
+        [ngStyle]="{'cursor': 'pointer','user-select': 'none'}"
+        [ngClass]="{'active' : paginationService.currentPage === page}"
+        *ngFor="let page of (getTotalPages() | async) | paginatorFilter: paginationService.currentPage : 10;"
+        (click)="paginationService.onPageSelect(page)"
+    >
+      <a class="page-link">{{page}}</a>
+    </li>
+    <li
+      [ngStyle]="{'cursor': 'pointer','user-select': 'none'}"
+      class="page-item"
+      (click)="paginationService.onNext()"
+      [ngClass]="{'disabled': paginationService.currentPage >= (getTotalPagesNum() | async)}"
+    >
+      <a class="page-link">Next</a>
+    </li>
+  </ul>
+</nav>

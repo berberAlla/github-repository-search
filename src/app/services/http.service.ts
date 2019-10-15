@@ -1,6 +1,6 @@
 import {HttpClient, HttpErrorResponse} from '@angular/common/http';
 import {Injectable, ViewContainerRef} from '@angular/core';
-import {Observable, throwError} from 'rxjs';
+import {Observable, of, throwError} from 'rxjs';
 import {catchError} from 'rxjs/operators';
 import {DataStorageService} from './data-storage.service';
 import {MessageService} from '../message/message.service';
@@ -21,18 +21,7 @@ export class HttpService {
  private messageRef: ViewContainerRef;
 
  public getRepositories(userName:string): Observable<any>{
-      return this.http.get<any>(`https://api.github.com/users/${userName}/repos`)
-        .pipe(
-          catchError((err: HttpErrorResponse) => {
-            this.messageService.createMessage({
-              container: this.messageRef,
-              component: MessageComponent,
-              text: err.error.message
-            });
-            this.dataStorage.updateUsersRepo('reset');
-            return  throwError(err.error.message);
-          })
-        );
+      return this.http.get<any>(`https://api.github.com/users/${userName}/repos`);
  }
 
 }

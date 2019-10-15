@@ -1,5 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
-import {DataStorageService} from '../services/data-storage.service';
+import {Component, Input} from '@angular/core';
 import {IRepoInfo} from '../shared/exports';
 
 @Component({
@@ -7,10 +6,8 @@ import {IRepoInfo} from '../shared/exports';
   templateUrl: './card.component.html',
   styleUrls: ['./card.component.css']
 })
-export class CardComponent {
-
+export class CardComponent{
 
   @Input('repo') public repo: IRepoInfo;
-
 
 }
